@@ -32,3 +32,5 @@
 
 # ResponseEntity
 - encapsula estrutura necessária para retornar resposta http
+
+# Instanciação db
