@@ -30,6 +30,9 @@
 - um único acessa busca todos dados relacionados
 ![image](https://gist.github.com/assets/89431704/dcc18ff2-22dc-4928-99ec-5f0136a58414)
 
+# Mongodb
+- por padrão cria uma cópia do obj inserido ou apenas insere no nodo (o que evita joins)
+
 # ResponseEntity
 - encapsula estrutura necessária para retornar resposta http
 
