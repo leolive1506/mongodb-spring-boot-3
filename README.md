@@ -33,7 +33,10 @@
 # Mongodb
 - por padrão cria uma cópia do obj inserido ou apenas insere no nodo (o que evita joins)
 - referenciar outro obj @DBRef(lazy = true)
+
 # ResponseEntity
 - encapsula estrutura necessária para retornar resposta http
 
-# Instanciação db
+# @Query
+- metodos especiais para gerar automaticamente as consultas
+- findNomeAtributo
