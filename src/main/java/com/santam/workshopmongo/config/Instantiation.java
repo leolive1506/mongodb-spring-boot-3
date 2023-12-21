@@ -1,6 +1,7 @@
 package com.santam.workshopmongo.config;
 
 import java.time.Instant;
+import java.time.temporal.ChronoUnit;
 import java.util.Arrays;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,7 +35,7 @@ public class Instantiation implements CommandLineRunner {
     userRepository.saveAll(Arrays.asList(maria, alex, bob));
 
     AuthorDTO author = new AuthorDTO(maria);
-    Post post1 = new Post(null, Instant.now(), "Partiu viagem", "Vou viajar para São Paulo. Abraços!", author);
+    Post post1 = new Post(null, Instant.now().minus(1, ChronoUnit.DAYS), "Partiu viagem", "Vou viajar para São Paulo. Abraços!", author);
     Post post2 = new Post(null, Instant.now(), "Bom dia", "Acordei feliz hoje!", author);
 
     CommentDTO c1 = new CommentDTO("Tenha um ótimo dia", Instant.now(), new AuthorDTO(alex));

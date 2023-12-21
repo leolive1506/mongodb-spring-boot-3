@@ -1,5 +1,7 @@
 package com.santam.workshopmongo.services;
 
+import java.time.Instant;
+import java.time.temporal.ChronoUnit;
 import java.util.List;
 import java.util.Optional;
 
@@ -23,5 +25,9 @@ public class PostService {
 
   public List<Post> findByTitle(String text) {
     return repository.searchTitle(text);
+  }
+
+  public List<Post> fullSearch(String text, Instant minDate, Instant maxDate) {
+    return repository.fullSearch(text, minDate, maxDate.plus(1, ChronoUnit.DAYS));
   }
 }

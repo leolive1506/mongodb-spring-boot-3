@@ -1,5 +1,7 @@
 package com.santam.workshopmongo.resource;
 
+import java.time.Instant;
+import java.util.Arrays;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -39,5 +41,19 @@ public class PostResource {
   public ResponseEntity<Post> findById(@PathVariable String id) {
     Post post = service.findById(id);
     return ResponseEntity.ok().body(post);
+  }
+
+  @GetMapping(value = "/fullsearch")
+  public ResponseEntity<List<Post>> fullSearch(
+    @RequestParam(value = "title", defaultValue = "") String title,
+    @RequestParam(value = "minDate", defaultValue = "") String minDate,
+    @RequestParam(value = "maxDate", defaultValue = "") String maxDate
+  ) {
+    title = URL.decodeParam(title);
+    Instant min = URL.convertDate(minDate, Instant.EPOCH);
+    Instant max = URL.convertDate(maxDate, Instant.now());
+
+    List<Post> posts = service.fullSearch(title, min, max);
+    return ResponseEntity.ok().body(posts);
   }
 }
